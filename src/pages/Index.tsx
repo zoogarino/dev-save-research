@@ -9,7 +9,7 @@ import HowItWorks from "@/components/HowItWorks";
 import Footer from "@/components/Footer";
 
 const Index = () => (
-  <div className="min-h-screen">
+  <div className="min-h-screen" id="main-content">
     <Navbar />
     <HeroSection />
     <TripPlanningHub />
