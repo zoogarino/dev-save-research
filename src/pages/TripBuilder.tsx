@@ -1,7 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import {
-  ArrowLeft,
   Plus,
   X,
   ZoomIn,
@@ -13,6 +11,7 @@ import {
   Menu as MenuIcon,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Navbar from "@/components/Navbar";
 
 interface Stop {
   id: number;
@@ -155,20 +154,21 @@ const TripBuilder = () => {
   );
 
   return (
-    <div className="h-screen flex flex-col bg-card">
-      {/* Top Bar */}
-      <div className="bg-navy-dark text-primary-foreground px-6 py-4 flex items-center justify-between flex-shrink-0">
-        <div className="flex items-center gap-3">
-          <Link to="/" className="hover:text-primary transition-colors" aria-label="Back to home">
-            <ArrowLeft size={22} />
-          </Link>
-          <h1 className="text-xl font-heading font-bold">Create Your Trip</h1>
+    <div className="min-h-screen flex flex-col bg-card">
+      {/* Standard Site Navigation */}
+      <Navbar />
+
+      {/* Trip Builder Title Bar */}
+      <div className="mt-[72px] bg-card border-b border-border px-6 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 flex-shrink-0">
+        <div>
+          <h1 className="text-2xl font-heading font-bold text-navy-dark">Create Your Trip</h1>
+          <p className="text-sm text-muted-foreground">Build your custom Namibian adventure</p>
         </div>
         <div className="flex items-center gap-3">
-          <button className="hidden sm:flex items-center gap-2 bg-foreground/20 hover:bg-foreground/30 text-primary-foreground text-sm font-medium px-4 py-2 rounded-lg transition-colors">
+          <button className="flex items-center gap-2 px-4 py-2 text-foreground/80 border border-border rounded-lg hover:bg-accent transition-colors text-sm font-medium">
             <Save size={16} /> Save Trip
           </button>
-          <button className="hidden sm:flex items-center gap-2 bg-primary hover:bg-primary-dark text-primary-foreground text-sm font-medium px-4 py-2 rounded-lg transition-colors">
+          <button className="flex items-center gap-2 bg-primary hover:bg-primary-dark text-primary-foreground text-sm font-medium px-4 py-2 rounded-lg transition-colors">
             <Share2 size={16} /> Share Trip
           </button>
         </div>
