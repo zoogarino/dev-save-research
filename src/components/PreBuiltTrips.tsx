@@ -1,14 +1,7 @@
-import { MapPin, Clock, Flag, ArrowRight, Sun } from "lucide-react";
+import { MapPin, Clock, Flag, ArrowRight, Sun, Plus } from "lucide-react";
 import { motion } from "framer-motion";
-
-const trips = [
-  { name: "Classic Northern Circuit", km: "3241.2 KM", time: "49h 31m", stops: 17 },
-  { name: "Central Namibian Safari", km: "1406.4 KM", time: "18h 57m", stops: 8 },
-  { name: "The Southern Circuit", km: "2442.8 KM", time: "31h 33m", stops: 12 },
-  { name: "The Northern Wilderness Explorer", km: "3521.2 KM", time: "47h 32m", stops: 13 },
-  { name: "The Etosha and Waterberg Experience", km: "1477.3 KM", time: "21h 24m", stops: 9 },
-  { name: "Swakopmund Holiday Weekend Getaway", km: "858.9 KM", time: "11h 3m", stops: 5 },
-];
+import { Link } from "react-router-dom";
+import { trips } from "@/data/trips";
 
 const gradients = [
   "from-primary/60 to-primary-dark/80",
@@ -16,7 +9,6 @@ const gradients = [
   "from-sandstone/60 to-ochre/80",
   "from-primary-dark/60 to-navy-dark",
   "from-terracotta/60 to-sandstone/80",
-  "from-primary/40 to-ochre/60",
 ];
 
 const PreBuiltTrips = () => (
@@ -35,7 +27,7 @@ const PreBuiltTrips = () => (
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {trips.map((trip, i) => (
           <motion.div
-            key={trip.name}
+            key={trip.id}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -62,15 +54,40 @@ const PreBuiltTrips = () => (
                   <Flag size={14} /> {trip.stops}
                 </span>
               </div>
-              <a
-                href="#"
+              <Link
+                to="/trip-builder"
                 className="inline-flex items-center gap-1 font-semibold text-primary hover:gap-2 transition-all text-sm"
               >
                 View Details <ArrowRight size={14} />
-              </a>
+              </Link>
             </div>
           </motion.div>
         ))}
+
+        {/* Create Your Own CTA card */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5, duration: 0.5 }}
+          className="bg-card rounded-xl overflow-hidden border-2 border-dashed border-border hover:border-primary hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center p-8 text-center min-h-[320px]"
+        >
+          <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+            <Plus size={28} className="text-primary" />
+          </div>
+          <h3 className="text-xl font-heading font-bold text-navy-dark mb-2">
+            Create Your Own
+          </h3>
+          <p className="text-sm text-muted-foreground mb-6">
+            Build a custom itinerary
+          </p>
+          <Link
+            to="/trip-builder"
+            className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-primary-foreground font-semibold px-6 py-2.5 rounded-lg transition-colors text-sm"
+          >
+            Get Started <ArrowRight size={14} />
+          </Link>
+        </motion.div>
       </div>
     </div>
   </section>

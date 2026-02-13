@@ -6,6 +6,8 @@ import WhyPocketGuide from "@/components/WhyPocketGuide";
 import RoadConditions from "@/components/RoadConditions";
 import SupportNamibia from "@/components/SupportNamibia";
 import HowItWorks from "@/components/HowItWorks";
+import PremiumTeaser from "@/components/PremiumTeaser";
+import BlogPreview from "@/components/BlogPreview";
 import Footer from "@/components/Footer";
 
 const Index = () => (
@@ -15,9 +17,11 @@ const Index = () => (
     <TripPlanningHub />
     <PreBuiltTrips />
     <WhyPocketGuide />
+    <PremiumTeaser />
     <RoadConditions />
     <SupportNamibia />
     <HowItWorks />
+    <BlogPreview />
     <Footer />
   </div>
 );
