@@ -12,7 +12,7 @@ const gradients = [
 ];
 
 const PreBuiltTrips = () => (
-  <section className="section-padding bg-background">
+  <section id="pre-built-trips" className="section-padding bg-background">
     <div className="section-container">
       <div className="text-center mb-16">
         <h2 className="text-3xl sm:text-4xl font-heading font-bold text-navy-dark mb-4">

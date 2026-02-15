@@ -14,7 +14,7 @@ const planYourTripItems = [
   {
     label: "Pre-Built Trips",
     subtitle: "5 expert itineraries",
-    href: "/trips?tab=browse",
+    href: "/#pre-built-trips",
     icon: Route,
     iconBg: "bg-ochre",
   },
