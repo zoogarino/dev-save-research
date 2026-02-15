@@ -1,16 +1,18 @@
 import { useState } from "react";
 import { X, Copy, Check } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import RichTextEditor from "./RichTextEditor";
 
 interface CopyTripModalProps {
   open: boolean;
   onClose: () => void;
   tripName: string;
+  tripDescription?: string;
 }
 
-const CopyTripModal = ({ open, onClose, tripName }: CopyTripModalProps) => {
-  const [title, setTitle] = useState(`${tripName} (Copy)`);
-  const [description, setDescription] = useState("");
+const CopyTripModal = ({ open, onClose, tripName, tripDescription = "" }: CopyTripModalProps) => {
+  const [title, setTitle] = useState(`Copy of ${tripName}`);
+  const [description, setDescription] = useState(tripDescription);
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
@@ -36,12 +38,16 @@ const CopyTripModal = ({ open, onClose, tripName }: CopyTripModalProps) => {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.95, opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-card rounded-2xl shadow-2xl w-full max-w-md"
+            className="bg-card rounded-2xl shadow-2xl w-full max-w-lg max-h-[85vh] flex flex-col"
           >
-            <div className="flex items-start justify-between p-5 border-b border-border">
+            <div className="flex items-start justify-between p-5 border-b border-border flex-shrink-0">
               <div>
-                <h3 className="font-heading font-bold text-navy-dark text-lg">Copy & Customize</h3>
-                <p className="text-xs text-muted-foreground mt-1">Make this trip your own!</p>
+                <h3 className="font-heading font-bold text-navy-dark text-lg">
+                  Copy & Customize Trip
+                </h3>
+                <p className="text-xs text-muted-foreground mt-1">
+                  Editing: {tripName}
+                </p>
               </div>
               <button onClick={onClose} className="text-muted-foreground hover:text-foreground p-1">
                 <X size={20} />
@@ -57,40 +63,45 @@ const CopyTripModal = ({ open, onClose, tripName }: CopyTripModalProps) => {
                 <p className="text-sm text-muted-foreground mt-1">Find it in "My Trips"</p>
               </div>
             ) : (
-              <div className="p-5 space-y-4">
-                <div>
-                  <label className="block text-xs font-semibold text-foreground/70 mb-1">Trip Title</label>
-                  <input
-                    type="text"
-                    maxLength={50}
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                    className="w-full px-3 py-2.5 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-ring bg-card"
-                  />
-                  <p className="text-xs text-muted-foreground mt-1">{title.length}/50 characters</p>
+              <>
+                <div className="p-5 space-y-4 overflow-y-auto flex-1">
+                  <div>
+                    <label className="block text-xs font-semibold text-foreground/70 mb-1">
+                      Trip Title
+                    </label>
+                    <input
+                      type="text"
+                      maxLength={50}
+                      value={title}
+                      onChange={(e) => setTitle(e.target.value)}
+                      className="w-full px-3 py-2.5 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-ring bg-card font-semibold text-navy-dark"
+                    />
+                    <p className="text-xs text-muted-foreground mt-1">
+                      {50 - title.length} characters remaining
+                    </p>
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-foreground/70 mb-1">
+                      Trip Description
+                    </label>
+                    <RichTextEditor content={description} onChange={setDescription} />
+                    <p className="text-xs text-muted-foreground mt-1">
+                      💡 Edit the description to personalize it for your journey
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <label className="block text-xs font-semibold text-foreground/70 mb-1">Trip Description</label>
-                  <textarea
-                    rows={4}
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    placeholder="Add notes about your trip..."
-                    className="w-full px-3 py-2.5 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-ring bg-card resize-none placeholder:text-muted-foreground"
-                  />
-                </div>
-                <div className="pt-2">
+                <div className="p-5 border-t border-border flex-shrink-0">
                   <button
                     onClick={handleCopy}
                     className="w-full bg-primary hover:bg-primary-dark text-primary-foreground font-semibold py-3 rounded-lg transition-colors text-sm flex items-center justify-center gap-2"
                   >
-                    <Copy size={16} /> Copy Trip
+                    <Copy size={16} /> Save My Custom Trip
                   </button>
                   <p className="text-xs text-muted-foreground text-center mt-2">
-                    Creates an editable copy in "My Trips"
+                    Your customized trip will be saved to "My Trips"
                   </p>
                 </div>
-              </div>
+              </>
             )}
           </motion.div>
         </motion.div>

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Plus, X, Search, SlidersHorizontal } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import FilterModal from "./FilterModal";
+import RichTextEditor from "./RichTextEditor";
 
 interface Stop {
   id: number;
@@ -49,16 +50,16 @@ const CreateTripSidebar = () => {
           />
         </div>
 
-        {/* Trip Description */}
+        {/* Trip Description - Rich Text Editor */}
         <div>
-          <label className="block text-sm font-semibold text-foreground/70 mb-2">Trip Description</label>
-          <textarea
-            rows={3}
-            placeholder="Describe your adventure..."
-            value={tripDescription}
-            onChange={(e) => setTripDescription(e.target.value)}
-            className="w-full border border-border rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-ring bg-card text-foreground placeholder:text-muted-foreground resize-none"
-          />
+          <label className="block text-sm font-semibold text-foreground/70 mb-2">
+            Trip Description
+          </label>
+          <RichTextEditor content={tripDescription} onChange={setTripDescription} />
+          <p className="text-xs text-muted-foreground mt-1">
+            Use the formatting tools to organize your itinerary, add day-by-day details, or include
+            tips for travelers.
+          </p>
         </div>
 
         {/* Route Stops */}
