@@ -1,11 +1,4 @@
-import {
-  CloudDownload,
-  Compass,
-  AlertTriangle,
-  CalendarCheck,
-  Users,
-  Heart,
-} from "lucide-react";
+import { CloudDownload, Compass, AlertTriangle, CalendarCheck, Users, Heart } from "lucide-react";
 import { motion } from "framer-motion";
 
 const features = [
@@ -18,8 +11,7 @@ const features = [
   {
     icon: Compass,
     title: "Local Knowledge, Expert Routes",
-    description:
-      "6 professionally designed itineraries plus 50+ detailed destination guides created by Namibia travel specialists.",
+    description: "5 professionally designed itineraries created by Namibia travel specialists.",
   },
   {
     icon: AlertTriangle,
@@ -42,8 +34,7 @@ const features = [
   {
     icon: Heart,
     title: "Book with Purpose",
-    description:
-      "Every booking supports local conservation, education, and community organizations across Namibia.",
+    description: "Every booking supports local conservation, education, and community organizations across Namibia.",
   },
 ];
 
@@ -55,8 +46,7 @@ const WhyPocketGuide = () => (
           Everything You Need for Your Namibian Adventure
         </h2>
         <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-          From planning to navigation, we've got you covered every step of the
-          way.
+          From planning to navigation, we've got you covered every step of the way.
         </p>
       </div>
 
@@ -73,12 +63,8 @@ const WhyPocketGuide = () => (
             <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4">
               <feature.icon size={26} className="text-primary" />
             </div>
-            <h3 className="text-xl font-heading font-bold text-navy-dark mb-2">
-              {feature.title}
-            </h3>
-            <p className="text-muted-foreground leading-relaxed">
-              {feature.description}
-            </p>
+            <h3 className="text-xl font-heading font-bold text-navy-dark mb-2">{feature.title}</h3>
+            <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
           </motion.div>
         ))}
       </div>
