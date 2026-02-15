@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, Compass, ChevronDown, Map, Route, Info } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -41,7 +41,25 @@ const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
   const dropdownTimeout = useRef<ReturnType<typeof setTimeout>>();
+  const navigate = useNavigate();
   const location = useLocation();
+
+  const handleHashLink = useCallback((e: React.MouseEvent, href: string) => {
+    if (href.startsWith("/#")) {
+      e.preventDefault();
+      const id = href.replace("/#", "");
+      if (location.pathname !== "/") {
+        navigate("/");
+        setTimeout(() => {
+          document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+        }, 300);
+      } else {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      }
+      setDropdownOpen(false);
+      setMobileOpen(false);
+    }
+  }, [location.pathname, navigate]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -123,7 +141,7 @@ const Navbar = () => {
                         key={item.label}
                         to={item.href}
                         className="flex items-center gap-3 p-3 rounded-xl hover:bg-accent/50 transition-colors"
-                        onClick={() => setDropdownOpen(false)}
+                        onClick={(e) => handleHashLink(e, item.href)}
                       >
                         <div className={`w-9 h-9 rounded-full ${item.iconBg} flex items-center justify-center flex-shrink-0`}>
                           <item.icon size={18} className="text-primary-foreground" />
@@ -144,6 +162,7 @@ const Navbar = () => {
                 key={link.label}
                 to={link.href}
                 className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+                onClick={(e) => handleHashLink(e, link.href)}
               >
                 {link.label}
               </Link>
@@ -219,6 +238,7 @@ const Navbar = () => {
                             key={item.label}
                             to={item.href}
                             className="text-lg text-primary-foreground/80 hover:text-primary transition-colors"
+                            onClick={(e) => handleHashLink(e, item.href)}
                           >
                             {item.label}
                           </Link>
@@ -239,6 +259,7 @@ const Navbar = () => {
                   <Link
                     to={link.href}
                     className="text-2xl font-heading font-semibold text-primary-foreground hover:text-primary transition-colors"
+                    onClick={(e) => handleHashLink(e, link.href)}
                   >
                     {link.label}
                   </Link>
