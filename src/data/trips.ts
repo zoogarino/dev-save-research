@@ -19,7 +19,7 @@ export const trips: Trip[] = [
     days: "14 days",
     season: "Year-round",
     description:
-      "The Classic Northern Circuit covers Namibia's most iconic destinations, from the red dunes of Sossusvlei to the wildlife-rich Etosha National Park. This comprehensive route takes you through diverse landscapes and cultural experiences.",
+      "The CLASSIC NORTHERN CIRCUIT covers Namibia's most iconic destinations, from the red dunes of Sossusvlei to the wildlife-rich Etosha National Park. This comprehensive route takes you through diverse landscapes and cultural experiences.",
   },
   {
     id: "central-safari",
