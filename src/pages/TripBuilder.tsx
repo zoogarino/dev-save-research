@@ -43,7 +43,7 @@ const TripBuilder = () => {
   );
 
   return (
-    <div className="min-h-screen flex flex-col bg-card">
+    <div className="h-screen flex flex-col overflow-hidden bg-card">
       <Navbar />
 
       {/* Title Bar */}
