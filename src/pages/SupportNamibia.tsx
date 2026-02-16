@@ -240,8 +240,7 @@ const SupportNamibiaPage = () => {
       </section>
 
       {/* Impact Stats */}
-      <section className="bg-gradient-to-r from-primary to-primary-dark text-primary-foreground py-20">
-        
+      
 
 
 
@@ -266,7 +265,8 @@ const SupportNamibiaPage = () => {
 
 
 
-      </section>
+
+
 
       {/* CTA */}
       <section className="bg-card py-20">
