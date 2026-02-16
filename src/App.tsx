@@ -5,6 +5,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { GA_ID } from "@/utils/analytics";
+import { PopupProvider } from "@/contexts/PopupContext";
+import PopupManager from "@/components/PopupManager";
 import Index from "./pages/Index";
 import TripBuilder from "./pages/TripBuilder";
 import Booking from "./pages/Booking";
@@ -58,24 +60,27 @@ const ScrollToHash = () => {
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <GoogleAnalytics />
-        <ScrollToHash />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/trips" element={<TripBuilder />} />
-          <Route path="/booking" element={<Booking />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="/support-namibia" element={<SupportNamibia />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <PopupProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <GoogleAnalytics />
+          <ScrollToHash />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/trips" element={<TripBuilder />} />
+            <Route path="/booking" element={<Booking />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/support-namibia" element={<SupportNamibia />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <PopupManager />
+        </BrowserRouter>
+      </PopupProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );
