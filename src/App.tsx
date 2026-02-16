@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import TripBuilder from "./pages/TripBuilder";
 import Booking from "./pages/Booking";
 import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import About from "./pages/About";
 import FAQ from "./pages/FAQ";
 import SupportNamibia from "./pages/SupportNamibia";
@@ -46,6 +47,7 @@ const App = () => (
           <Route path="/trips" element={<TripBuilder />} />
           <Route path="/booking" element={<Booking />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/about" element={<About />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/support-namibia" element={<SupportNamibia />} />
