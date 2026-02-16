@@ -5,55 +5,55 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const orgs = [
-  {
-    name: "Tangeni Shilongo Namibia",
-    url: "https://tangenishilongo.org",
-    gradient: "from-yellow-600 via-red-600 to-green-700",
-    description:
-      "Supporting educational programs and providing school supplies, infrastructure improvements, and scholarship opportunities to students across Namibia's rural communities.",
-    impact: [
-      "1,200+ students supported annually",
-      "15 schools in rural areas",
-      "School supplies and infrastructure",
-    ],
-  },
-  {
-    name: "Elephant Human Relations Aid (EHRA)",
-    url: "https://www.desertelephant.org",
-    gradient: "from-gray-700 to-gray-900",
-    description:
-      "Protecting Namibia's rare desert-adapted elephants through community-based conservation, conflict mitigation, and research in the Kunene Region.",
-    impact: [
-      "150+ desert elephants protected",
-      "Human-wildlife conflict reduced 60%",
-      "20+ local jobs created",
-    ],
-  },
-  {
-    name: "Oonte Orphans and Vulnerable Children (OVC) Centre",
-    url: "https://oonte.org",
-    gradient: "from-blue-900 to-blue-700",
-    description:
-      "Providing holistic care, education, nutrition, and psychosocial support for orphaned and vulnerable children in northern Namibia.",
-    impact: [
-      "80+ children in residential care",
-      "200+ families supported",
-      "Education and healthcare provided",
-    ],
-  },
-];
+{
+  name: "Tangeni Shilongo Namibia",
+  url: "https://tangenishilongo.org",
+  gradient: "from-yellow-600 via-red-600 to-green-700",
+  description:
+  "Supporting educational programs and providing school supplies, infrastructure improvements, and scholarship opportunities to students across Namibia's rural communities.",
+  impact: [
+  "1,200+ students supported annually",
+  "15 schools in rural areas",
+  "School supplies and infrastructure"]
+
+},
+{
+  name: "Elephant Human Relations Aid (EHRA)",
+  url: "https://www.desertelephant.org",
+  gradient: "from-gray-700 to-gray-900",
+  description:
+  "Protecting Namibia's rare desert-adapted elephants through community-based conservation, conflict mitigation, and research in the Kunene Region.",
+  impact: [
+  "150+ desert elephants protected",
+  "Human-wildlife conflict reduced 60%",
+  "20+ local jobs created"]
+
+},
+{
+  name: "Oonte Orphans and Vulnerable Children (OVC) Centre",
+  url: "https://oonte.org",
+  gradient: "from-blue-900 to-blue-700",
+  description:
+  "Providing holistic care, education, nutrition, and psychosocial support for orphaned and vulnerable children in northern Namibia.",
+  impact: [
+  "80+ children in residential care",
+  "200+ families supported",
+  "Education and healthcare provided"]
+
+}];
+
 
 const stats = [
-  { value: "700+", label: "Travelers Supporting Change" },
-  { value: "$42,000+", label: "Donated Since 2020" },
-  { value: "3", label: "Partner Organizations" },
-];
+{ value: "700+", label: "Travelers Supporting Change" },
+{ value: "$42,000+", label: "Donated Since 2020" },
+{ value: "3", label: "Partner Organizations" }];
+
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
-  transition: { duration: 0.6 },
+  transition: { duration: 0.6 }
 };
 
 const SupportNamibiaPage = () => {
@@ -118,8 +118,8 @@ const SupportNamibiaPage = () => {
         <div className="max-w-5xl mx-auto px-6">
           <motion.h2
             {...fadeUp}
-            className="text-4xl font-heading font-bold text-navy-dark mb-12 text-center"
-          >
+            className="text-4xl font-heading font-bold text-navy-dark mb-12 text-center">
+
             How Your Bookings Make a Difference
           </motion.h2>
 
@@ -127,8 +127,8 @@ const SupportNamibiaPage = () => {
             <motion.div
               {...fadeUp}
               transition={{ delay: 0.1, duration: 0.6 }}
-              className="bg-card rounded-xl p-8 shadow-lg border-l-4 border-primary"
-            >
+              className="bg-card rounded-xl p-8 shadow-lg border-l-4 border-primary">
+
               <div className="text-5xl font-bold text-primary mb-4">5%</div>
               <h3 className="text-2xl font-heading font-bold text-navy-dark mb-3">
                 Standard Bookings
@@ -143,8 +143,8 @@ const SupportNamibiaPage = () => {
             <motion.div
               {...fadeUp}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="bg-card rounded-xl p-8 shadow-lg border-l-4 border-ochre"
-            >
+              className="bg-card rounded-xl p-8 shadow-lg border-l-4 border-ochre">
+
               <div className="text-5xl font-bold text-ochre mb-4">10%</div>
               <h3 className="text-2xl font-heading font-bold text-navy-dark mb-3">
                 Premium Members
@@ -179,20 +179,20 @@ const SupportNamibiaPage = () => {
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {orgs.map((org, i) => (
-              <motion.div
-                key={org.name}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15, duration: 0.6 }}
-                className="group relative bg-card rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
-              >
+            {orgs.map((org, i) =>
+            <motion.div
+              key={org.name}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.15, duration: 0.6 }}
+              className="group relative bg-card rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+
                 {/* Image area */}
                 <div className="relative h-80 overflow-hidden">
                   <div
-                    className={`absolute inset-0 bg-gradient-to-br ${org.gradient}`}
-                  />
+                  className={`absolute inset-0 bg-gradient-to-br ${org.gradient}`} />
+
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <h3 className="text-2xl font-heading font-bold text-white">
@@ -200,11 +200,11 @@ const SupportNamibiaPage = () => {
                     </h3>
                   </div>
                   <a
-                    href={org.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="absolute top-4 right-4 w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary-dark transition shadow-lg"
-                  >
+                  href={org.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute top-4 right-4 w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary-dark transition shadow-lg">
+
                     <ExternalLink className="w-5 h-5 text-primary-foreground" />
                   </a>
                 </div>
@@ -219,53 +219,53 @@ const SupportNamibiaPage = () => {
                       Impact:
                     </p>
                     <ul className="text-sm text-muted-foreground space-y-1">
-                      {org.impact.map((item) => (
-                        <li key={item}>• {item}</li>
-                      ))}
+                      {org.impact.map((item) =>
+                    <li key={item}>• {item}</li>
+                    )}
                     </ul>
                   </div>
                   <a
-                    href={org.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-6 inline-flex items-center gap-2 text-primary font-semibold hover:underline"
-                  >
+                  href={org.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex items-center gap-2 text-primary font-semibold hover:underline">
+
                     Learn More <ArrowRight className="w-4 h-4" />
                   </a>
                 </div>
               </motion.div>
-            ))}
+            )}
           </div>
         </div>
       </section>
 
       {/* Impact Stats */}
       <section className="bg-gradient-to-r from-primary to-primary-dark text-primary-foreground py-20">
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.h2
-            {...fadeUp}
-            className="text-4xl font-heading font-bold mb-12 text-center"
-          >
-            Our Impact So Far
-          </motion.h2>
-          <div className="grid md:grid-cols-3 gap-12">
-            {stats.map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15, duration: 0.6 }}
-                className="text-center"
-              >
-                <div className="text-6xl font-bold mb-4">{stat.value}</div>
-                <p className="text-xl text-primary-foreground/90">
-                  {stat.label}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       </section>
 
       {/* CTA */}
@@ -281,14 +281,14 @@ const SupportNamibiaPage = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => navigate("/trips")}
-              className="px-8 py-4 bg-primary text-primary-foreground rounded-xl font-bold text-lg hover:bg-primary-dark transition shadow-lg"
-            >
+              className="px-8 py-4 bg-primary text-primary-foreground rounded-xl font-bold text-lg hover:bg-primary-dark transition shadow-lg">
+
               Start Planning Your Trip
             </button>
             <button
               onClick={() => navigate("/booking")}
-              className="px-8 py-4 bg-card text-primary border-2 border-primary rounded-xl font-bold text-lg hover:bg-accent transition"
-            >
+              className="px-8 py-4 bg-card text-primary border-2 border-primary rounded-xl font-bold text-lg hover:bg-accent transition">
+
               Book Your Vehicle
             </button>
           </div>
@@ -299,8 +299,8 @@ const SupportNamibiaPage = () => {
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>);
+
 };
 
 export default SupportNamibiaPage;
