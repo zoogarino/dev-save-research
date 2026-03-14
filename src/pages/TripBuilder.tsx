@@ -95,7 +95,7 @@ const TripBuilder = () => {
       {/* Main Content */}
       <div className="flex-1 flex overflow-hidden relative">
         {/* Desktop Sidebar */}
-        <div className="hidden md:block w-80 border-r border-border bg-card overflow-y-auto flex-shrink-0">
+        <div className="hidden md:block w-[400px] min-w-[400px] border-r border-border bg-muted/30 overflow-y-auto flex-shrink-0">
           {sidebarContent}
         </div>
 
