@@ -141,34 +141,36 @@ const TripBuilder = () => {
         </AnimatePresence>
 
         {/* Map Area */}
-        <div className="flex-1 relative bg-muted">
-          <div className="absolute inset-0 flex items-center justify-center text-muted-foreground font-medium text-lg">
-            {selectedTrip
-              ? `Route: ${selectedTrip.name}`
-              : "Interactive Map Will Load Here"}
-          </div>
-
-          {/* Map Controls */}
-          <div className="absolute top-4 right-4 bg-card rounded-lg shadow-lg p-1.5 flex flex-col gap-1">
-            <button className="w-10 h-10 flex items-center justify-center hover:bg-accent rounded transition-colors" aria-label="Zoom in">
-              <ZoomIn size={18} className="text-foreground" />
-            </button>
-            <button className="w-10 h-10 flex items-center justify-center hover:bg-accent rounded transition-colors" aria-label="Zoom out">
-              <ZoomOut size={18} className="text-foreground" />
-            </button>
-            <button className="w-10 h-10 flex items-center justify-center hover:bg-accent rounded transition-colors" aria-label="Center map">
-              <Crosshair size={18} className="text-foreground" />
-            </button>
-          </div>
-
-          {/* Helper Tooltip */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-card shadow-lg rounded-lg px-4 py-2 flex items-center gap-2">
-            <Lightbulb size={16} className="text-ochre flex-shrink-0" />
-            <span className="text-sm text-muted-foreground whitespace-nowrap">
+        <div className="flex-1 relative p-6 bg-muted/30">
+          <div className="h-full w-full border border-border rounded-xl shadow-lg overflow-hidden relative bg-muted">
+            <div className="absolute inset-0 flex items-center justify-center text-muted-foreground font-medium text-lg">
               {selectedTrip
-                ? "Route displayed with numbered waypoints and connecting path"
-                : "Tap pins on the map to add locations, or use the search."}
-            </span>
+                ? `Route: ${selectedTrip.name}`
+                : "Interactive Map Will Load Here"}
+            </div>
+
+            {/* Map Controls */}
+            <div className="absolute top-4 right-4 bg-card rounded-lg shadow-lg p-1.5 flex flex-col gap-1">
+              <button className="w-10 h-10 flex items-center justify-center hover:bg-accent rounded transition-colors" aria-label="Zoom in">
+                <ZoomIn size={18} className="text-foreground" />
+              </button>
+              <button className="w-10 h-10 flex items-center justify-center hover:bg-accent rounded transition-colors" aria-label="Zoom out">
+                <ZoomOut size={18} className="text-foreground" />
+              </button>
+              <button className="w-10 h-10 flex items-center justify-center hover:bg-accent rounded transition-colors" aria-label="Center map">
+                <Crosshair size={18} className="text-foreground" />
+              </button>
+            </div>
+
+            {/* Helper Tooltip */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-card shadow-lg rounded-lg px-4 py-2 flex items-center gap-2">
+              <Lightbulb size={16} className="text-ochre flex-shrink-0" />
+              <span className="text-sm text-muted-foreground whitespace-nowrap">
+                {selectedTrip
+                  ? "Route displayed with numbered waypoints and connecting path"
+                  : "Tap pins on the map to add locations, or use the search."}
+              </span>
+            </div>
           </div>
         </div>
       </div>
