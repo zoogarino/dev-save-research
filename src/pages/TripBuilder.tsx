@@ -37,7 +37,7 @@ const TripBuilder = () => {
       onSwitchTrip={(t) => setSelectedTrip(t)}
     />
   ) : activeTab === "browse" ? (
-    <BrowseTrips onSelectTrip={handleSelectTrip} />
+    <BrowseTrips onSelectTrip={handleSelectTrip} selectedTripId={selectedTrip?.id} />
   ) : (
     <CreateTripSidebar />
   );
