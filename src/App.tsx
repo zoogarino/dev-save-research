@@ -14,6 +14,7 @@ import BookingVehicles from "./pages/BookingVehicles";
 import BookingAccommodation from "./pages/BookingAccommodation";
 import BookingActivities from "./pages/BookingActivities";
 import BookingPackages from "./pages/BookingPackages";
+import BookingAccommodationActivities from "./pages/BookingAccommodationActivities";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import About from "./pages/About";
