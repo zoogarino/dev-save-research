@@ -346,6 +346,52 @@ const Navbar = () => {
                 </AnimatePresence>
               </div>
 
+              {/* Booking Accordion */}
+              <div className="flex flex-col items-center">
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setMobileBookingDropdownOpen(!mobileBookingDropdownOpen);
+                  }}
+                  className="flex items-center gap-2 text-2xl font-heading font-semibold text-primary-foreground hover:text-primary transition-colors"
+                >
+                  Booking
+                  <ChevronDown
+                    size={20}
+                    className={`transition-transform duration-200 ${mobileBookingDropdownOpen ? "rotate-180" : ""}`}
+                  />
+                </button>
+                <AnimatePresence>
+                  {mobileBookingDropdownOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="overflow-hidden mt-3"
+                    >
+                      <div className="flex flex-col items-center gap-3">
+                        {bookingItems.map((item) => (
+                          <Link
+                            key={item.label}
+                            to={item.href}
+                            className="text-lg text-primary-foreground/80 hover:text-primary transition-colors flex items-center gap-2"
+                            onClick={() => setMobileOpen(false)}
+                          >
+                            {item.label}
+                            {item.badge && (
+                              <span className="text-[10px] bg-primary text-primary-foreground px-1.5 py-0.5 rounded-full font-bold">
+                                {item.badge}
+                              </span>
+                            )}
+                          </Link>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.label}
