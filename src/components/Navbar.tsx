@@ -104,7 +104,9 @@ const Navbar = () => {
   useEffect(() => {
     setMobileOpen(false);
     setDropdownOpen(false);
+    setBookingDropdownOpen(false);
     setMobileDropdownOpen(false);
+    setMobileBookingDropdownOpen(false);
   }, [location]);
 
   useEffect(() => {
