@@ -70,8 +70,11 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [bookingDropdownOpen, setBookingDropdownOpen] = useState(false);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
+  const [mobileBookingDropdownOpen, setMobileBookingDropdownOpen] = useState(false);
   const dropdownTimeout = useRef<ReturnType<typeof setTimeout>>();
+  const bookingDropdownTimeout = useRef<ReturnType<typeof setTimeout>>();
   const navigate = useNavigate();
   const location = useLocation();
 
