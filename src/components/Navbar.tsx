@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, Compass, ChevronDown, Map, Route, Info } from "lucide-react";
+import { Menu, X, Compass, ChevronDown, Map, Route, Info, Truck, Building2, Sparkles, Package } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const planYourTripItems = [
@@ -27,8 +27,39 @@ const planYourTripItems = [
   },
 ];
 
+const bookingItems = [
+  {
+    label: "Vehicle Rentals",
+    subtitle: "4x4s & camping vehicles",
+    href: "/booking/vehicles",
+    icon: Truck,
+    iconBg: "bg-primary",
+  },
+  {
+    label: "Accommodation",
+    subtitle: "Lodges, camps & more",
+    href: "/booking/accommodation",
+    icon: Building2,
+    iconBg: "bg-ochre",
+  },
+  {
+    label: "Activities & Tours",
+    subtitle: "Safaris, tours & experiences",
+    href: "/booking/activities",
+    icon: Sparkles,
+    iconBg: "bg-terracotta",
+  },
+  {
+    label: "Complete Packages",
+    subtitle: "All-inclusive trips",
+    href: "/booking/packages",
+    icon: Package,
+    iconBg: "bg-primary",
+    badge: "SOON",
+  },
+];
+
 const navLinks = [
-  { label: "Booking", href: "/booking" },
   { label: "Road Conditions", href: "/#road-conditions" },
   { label: "Blog", href: "/blog" },
   { label: "Support Namibia", href: "/support-namibia" },
