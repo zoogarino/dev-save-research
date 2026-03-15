@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, Compass, ChevronDown, Map, Route, Info } from "lucide-react";
+import { Menu, X, Compass, ChevronDown, Map, Route, Info, Truck, Building2, Sparkles, Package } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const planYourTripItems = [
@@ -27,8 +27,39 @@ const planYourTripItems = [
   },
 ];
 
+const bookingItems = [
+  {
+    label: "Vehicle Rentals",
+    subtitle: "4x4s & camping vehicles",
+    href: "/booking/vehicles",
+    icon: Truck,
+    iconBg: "bg-primary",
+  },
+  {
+    label: "Accommodation",
+    subtitle: "Lodges, camps & more",
+    href: "/booking/accommodation",
+    icon: Building2,
+    iconBg: "bg-ochre",
+  },
+  {
+    label: "Activities & Tours",
+    subtitle: "Safaris, tours & experiences",
+    href: "/booking/activities",
+    icon: Sparkles,
+    iconBg: "bg-terracotta",
+  },
+  {
+    label: "Complete Packages",
+    subtitle: "All-inclusive trips",
+    href: "/booking/packages",
+    icon: Package,
+    iconBg: "bg-primary",
+    badge: "SOON",
+  },
+];
+
 const navLinks = [
-  { label: "Booking", href: "/booking" },
   { label: "Road Conditions", href: "/#road-conditions" },
   { label: "Blog", href: "/blog" },
   { label: "Support Namibia", href: "/support-namibia" },
@@ -39,8 +70,11 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [bookingDropdownOpen, setBookingDropdownOpen] = useState(false);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
+  const [mobileBookingDropdownOpen, setMobileBookingDropdownOpen] = useState(false);
   const dropdownTimeout = useRef<ReturnType<typeof setTimeout>>();
+  const bookingDropdownTimeout = useRef<ReturnType<typeof setTimeout>>();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -70,7 +104,9 @@ const Navbar = () => {
   useEffect(() => {
     setMobileOpen(false);
     setDropdownOpen(false);
+    setBookingDropdownOpen(false);
     setMobileDropdownOpen(false);
+    setMobileBookingDropdownOpen(false);
   }, [location]);
 
   useEffect(() => {
@@ -148,6 +184,67 @@ const Navbar = () => {
                         </div>
                         <div>
                           <div className="text-sm font-semibold text-foreground">{item.label}</div>
+                          <div className="text-xs text-muted-foreground">{item.subtitle}</div>
+                        </div>
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Booking Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => {
+                clearTimeout(bookingDropdownTimeout.current);
+                setBookingDropdownOpen(true);
+              }}
+              onMouseLeave={() => {
+                bookingDropdownTimeout.current = setTimeout(() => setBookingDropdownOpen(false), 150);
+              }}
+            >
+              <button
+                className="flex items-center gap-1 text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+                onClick={() => setBookingDropdownOpen(!bookingDropdownOpen)}
+              >
+                Booking
+                <ChevronDown
+                  size={14}
+                  className={`transition-transform duration-200 ${bookingDropdownOpen ? "rotate-180" : ""}`}
+                />
+              </button>
+
+              <AnimatePresence>
+                {bookingDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 8 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full left-0 mt-2 w-[280px] bg-card rounded-xl shadow-xl p-4 z-50 border border-border"
+                  >
+                    {bookingItems.map((item) => (
+                      <Link
+                        key={item.label}
+                        to={item.href}
+                        className={`flex items-center gap-3 p-3 rounded-xl hover:bg-accent/50 transition-colors ${
+                          item.badge ? "bg-primary/5 border border-primary/10" : ""
+                        }`}
+                        onClick={() => setBookingDropdownOpen(false)}
+                      >
+                        <div className={`w-9 h-9 rounded-full ${item.iconBg} flex items-center justify-center flex-shrink-0`}>
+                          <item.icon size={18} className="text-primary-foreground" />
+                        </div>
+                        <div className="flex-1">
+                          <div className="flex items-center gap-2">
+                            <span className="text-sm font-semibold text-foreground">{item.label}</span>
+                            {item.badge && (
+                              <span className="text-[10px] bg-primary text-primary-foreground px-1.5 py-0.5 rounded-full font-bold">
+                                {item.badge}
+                              </span>
+                            )}
+                          </div>
                           <div className="text-xs text-muted-foreground">{item.subtitle}</div>
                         </div>
                       </Link>
@@ -241,6 +338,52 @@ const Navbar = () => {
                             onClick={(e) => handleHashLink(e, item.href)}
                           >
                             {item.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Booking Accordion */}
+              <div className="flex flex-col items-center">
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setMobileBookingDropdownOpen(!mobileBookingDropdownOpen);
+                  }}
+                  className="flex items-center gap-2 text-2xl font-heading font-semibold text-primary-foreground hover:text-primary transition-colors"
+                >
+                  Booking
+                  <ChevronDown
+                    size={20}
+                    className={`transition-transform duration-200 ${mobileBookingDropdownOpen ? "rotate-180" : ""}`}
+                  />
+                </button>
+                <AnimatePresence>
+                  {mobileBookingDropdownOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="overflow-hidden mt-3"
+                    >
+                      <div className="flex flex-col items-center gap-3">
+                        {bookingItems.map((item) => (
+                          <Link
+                            key={item.label}
+                            to={item.href}
+                            className="text-lg text-primary-foreground/80 hover:text-primary transition-colors flex items-center gap-2"
+                            onClick={() => setMobileOpen(false)}
+                          >
+                            {item.label}
+                            {item.badge && (
+                              <span className="text-[10px] bg-primary text-primary-foreground px-1.5 py-0.5 rounded-full font-bold">
+                                {item.badge}
+                              </span>
+                            )}
                           </Link>
                         ))}
                       </div>
