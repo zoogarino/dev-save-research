@@ -36,18 +36,11 @@ const bookingItems = [
     iconBg: "bg-primary",
   },
   {
-    label: "Accommodation",
-    subtitle: "Lodges, camps & more",
-    href: "/booking/accommodation",
-    icon: Building2,
-    iconBg: "bg-ochre",
-  },
-  {
-    label: "Activities & Tours",
-    subtitle: "Safaris, tours & experiences",
-    href: "/booking/activities",
-    icon: Sparkles,
-    iconBg: "bg-terracotta",
+    label: "Accommodation & Activities",
+    subtitle: "Lodges, camps, tours & experiences",
+    href: "/booking/accommodation-activities",
+    icon: Map,
+    iconBg: "bg-gradient-to-br from-blue-500/80 to-ochre/80",
   },
   {
     label: "Complete Packages",
