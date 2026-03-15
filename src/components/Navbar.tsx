@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, Compass, ChevronDown, Map, Route, Info, Truck, Building2, Sparkles, Package } from "lucide-react";
+import { Menu, X, Compass, ChevronDown, Map, Route, Info, Truck, Package } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const planYourTripItems = [
