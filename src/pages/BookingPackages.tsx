@@ -121,6 +121,35 @@ const BookingPackages = () => {
         </div>
       </section>
 
+      {/* Conservation Band */}
+      <section className="w-full py-10 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#edf7f0" }}>
+        <div className="mx-auto text-center" style={{ maxWidth: "640px" }}>
+          <div className="flex justify-center mb-4">
+            <Leaf className="w-5 h-5" style={{ color: "#3a8c5c" }} aria-hidden="true" />
+          </div>
+          <p
+            className="mx-auto"
+            style={{
+              fontSize: "16px",
+              color: "#2a4a35",
+              lineHeight: 1.8,
+              maxWidth: "560px",
+            }}
+          >
+            Every complete trip booking you make through Pocket Guide Namibia contributes directly
+            to conservation and education initiatives across Namibia — on your behalf, at no extra
+            cost to you.
+          </p>
+          <Link
+            to="/support-namibia"
+            className="inline-block mt-5 underline underline-offset-4"
+            style={{ fontSize: "13px", color: "#3a8c5c" }}
+          >
+            Learn about the organisations we support →
+          </Link>
+        </div>
+      </section>
+
       {/* Single CTA */}
       <section className="bg-card py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto text-center">
