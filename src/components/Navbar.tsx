@@ -43,12 +43,11 @@ const bookingItems = [
     iconBg: "bg-gradient-to-br from-blue-500/80 to-ochre/80",
   },
   {
-    label: "Complete Packages",
-    subtitle: "All-inclusive trips",
+    label: "Complete Trip Booking",
+    subtitle: "Vehicle, stays & activities — booked for you",
     href: "/booking/packages",
     icon: Package,
     iconBg: "bg-primary",
-    badge: "SOON",
   },
 ];
 
