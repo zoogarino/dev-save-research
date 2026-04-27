@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout";
 import { Link, useNavigate } from "react-router-dom";
-import { Map, Edit3, Compass, ArrowRight } from "lucide-react";
+import { Map, Edit3, Compass, ArrowRight, Leaf } from "lucide-react";
 import { motion } from "framer-motion";
 
 const paths = [
