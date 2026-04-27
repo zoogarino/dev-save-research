@@ -220,23 +220,14 @@ const Navbar = () => {
                       <Link
                         key={item.label}
                         to={item.href}
-                        className={`flex items-center gap-3 p-3 rounded-xl hover:bg-accent/50 transition-colors ${
-                          item.badge ? "bg-primary/5 border border-primary/10" : ""
-                        }`}
+                        className="flex items-center gap-3 p-3 rounded-xl hover:bg-accent/50 transition-colors"
                         onClick={() => setBookingDropdownOpen(false)}
                       >
                         <div className={`w-9 h-9 rounded-full ${item.iconBg} flex items-center justify-center flex-shrink-0`}>
                           <item.icon size={18} className="text-primary-foreground" />
                         </div>
                         <div className="flex-1">
-                          <div className="flex items-center gap-2">
-                            <span className="text-sm font-semibold text-foreground">{item.label}</span>
-                            {item.badge && (
-                              <span className="text-[10px] bg-primary text-primary-foreground px-1.5 py-0.5 rounded-full font-bold">
-                                {item.badge}
-                              </span>
-                            )}
-                          </div>
+                          <div className="text-sm font-semibold text-foreground">{item.label}</div>
                           <div className="text-xs text-muted-foreground">{item.subtitle}</div>
                         </div>
                       </Link>
@@ -367,15 +358,10 @@ const Navbar = () => {
                           <Link
                             key={item.label}
                             to={item.href}
-                            className="text-lg text-primary-foreground/80 hover:text-primary transition-colors flex items-center gap-2"
+                            className="text-lg text-primary-foreground/80 hover:text-primary transition-colors"
                             onClick={() => setMobileOpen(false)}
                           >
                             {item.label}
-                            {item.badge && (
-                              <span className="text-[10px] bg-primary text-primary-foreground px-1.5 py-0.5 rounded-full font-bold">
-                                {item.badge}
-                              </span>
-                            )}
                           </Link>
                         ))}
                       </div>
