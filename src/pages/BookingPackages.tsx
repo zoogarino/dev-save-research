@@ -2,6 +2,7 @@ import Layout from "@/components/Layout";
 import { Link, useNavigate } from "react-router-dom";
 import { Map, Edit3, Compass, ArrowRight, Leaf } from "lucide-react";
 import { motion } from "framer-motion";
+import heroImage from "@/assets/complete-trip-booking-hero.jpg";
 
 const paths = [
   {
@@ -51,23 +52,33 @@ const BookingPackages = () => {
 
   return (
     <Layout className="bg-background">
-      {/* Header */}
-      <section className="bg-muted py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-4">
-            Available Now
-          </p>
-          <h1 className="text-3xl sm:text-4xl font-heading font-bold text-navy-dark mb-5">
-            Complete Trip Booking
-          </h1>
-          <p
-            className="text-base text-muted-foreground mx-auto"
-            style={{ maxWidth: "600px", lineHeight: 1.7 }}
-          >
-            From the first night's accommodation to the last stretch of road — we handle every
-            booking so you can focus on the adventure. Browse our trips, make them your own, or
-            start from scratch.
-          </p>
+      {/* Header — Cinematic Hero */}
+      <section className="relative w-full overflow-hidden" style={{ height: "500px" }}>
+        <img
+          src={heroImage}
+          alt="Red gravel road stretching across the Namibian desert at golden hour"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+          width={1920}
+          height={1280}
+        />
+        <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.38)" }} />
+        <div className="relative z-10 h-full flex items-center justify-center px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center">
+            <h1
+              className="text-3xl sm:text-4xl font-heading font-bold mb-5"
+              style={{ color: "#ffffff" }}
+            >
+              Complete Trip Booking
+            </h1>
+            <p
+              className="text-base mx-auto"
+              style={{ maxWidth: "600px", lineHeight: 1.7, color: "rgba(255,255,255,0.85)" }}
+            >
+              From the first night's accommodation to the last stretch of road — we handle every
+              booking so you can focus on the adventure. Browse our trips, make them your own, or
+              start from scratch.
+            </p>
+          </div>
         </div>
       </section>
 
