@@ -169,7 +169,7 @@ const BookingPackages = () => {
           </h2>
           <p className="text-sm text-muted-foreground mb-8 leading-relaxed">
             Our pre-designed trips are a great place to begin — each one is fully adaptable and
-            ready to inquire about.
+            ready to go.
           </p>
           <div className="flex flex-col items-center gap-4">
             <button
