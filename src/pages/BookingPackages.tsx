@@ -147,9 +147,9 @@ const BookingPackages = () => {
               maxWidth: "560px",
             }}
           >
-            Every complete trip booking you make through Pocket Guide Namibia contributes directly
-            to conservation and education initiatives across Namibia — on your behalf, at no extra
-            cost to you.
+            Every booking made through Pocket Guide Namibia contributes directly to conservation and
+            education initiatives across Namibia — we donate on your behalf, at no extra cost to
+            you.
           </p>
           <Link
             to="/support-namibia"
